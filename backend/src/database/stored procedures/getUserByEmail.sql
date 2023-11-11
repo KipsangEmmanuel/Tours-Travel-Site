@@ -8,7 +8,8 @@ begin
 	select	u.[_id],
 			u.email,
 			u.username,
-			u.password
+			u.password,
+			u.role
 	from	[users] u where email = @email ;
 end;
 

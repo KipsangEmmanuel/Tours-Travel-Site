@@ -3,8 +3,9 @@ import { execute, query } from '../services/dbconnect'
 import _ from "lodash";
 import { User } from '../types/userInterface';
 import { Request, Response } from 'express';
-import { validateRegisterUser } from '../validators/userValidator';
-import { hashPass } from '../services/passwordHash';
+import { validateLoginUser, validateRegisterUser } from '../validators/userValidator';
+import { comparePassword, hashPass } from '../services/passwordHash';
+import { generateToken } from '../services/tokenGenerator';
 
 
 export const registerUser = async(req:Request, res:Response) => {
@@ -28,7 +29,7 @@ export const registerUser = async(req:Request, res:Response) => {
         if(userWithEmail)
             return res.status(404).send({
                 error: "Account already exixt"
-            })
+         })
 
         const newUser: User = {
             id: uuidv4(),
@@ -56,3 +57,95 @@ export const registerUser = async(req:Request, res:Response) => {
     }  
 
 }
+
+export const loginUser = async (req: Request, res: Response) => {
+    try {
+      const { email, password } = req.body;
+      const procedureName = "getUserByEmail";
+  
+      // console.log(req.body);
+    
+      const { error } = validateLoginUser.validate(req.body);
+  
+      if (error)
+        return res.status(400).send({
+          success: false,
+          error:
+            "password should be atleast 8 characters long <br> with letters symbols and uppercase",
+        });
+        
+      const result = await execute(procedureName, { email });
+      // console.log(result)
+      if (result) {
+        const recordset = result.recordset;
+        // console.log(recordset)
+        const user = recordset[0];
+        // console.log(user)
+  
+        if (!user) {
+          return res.status(404).send({ error: "Account does not exist" });
+        }
+  
+        const validPassword = await comparePassword(password, user.password);
+  
+        if (!validPassword) {
+          return res.status(404).send({ error: "Invalid password" });
+        }
+  
+        const token=generateToken(
+          user.email,
+          user._id,
+          user.username,
+
+          user.role
+        );
+
+        // console.log(token);
+        
+        return res.send({
+          message: "Logged in successfully",
+          token,
+        });
+      } else {
+        return res.status(404).send({ message: "Account does not exist" });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+export const getUsers = async (req:Request, res:Response) => {
+    try{
+        const procedureName = 'getUsers';
+        const result = await query(`EXEC ${procedureName}`);
+        res.json(result.recordset)
+
+    }catch (error) {
+        console.log(error)
+    }
+
+}
+
+
+
+
