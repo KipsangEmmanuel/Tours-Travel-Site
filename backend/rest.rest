@@ -1,0 +1,7 @@
+###
+POST http://localhost:5400/user
+Content-Type: application/json
+
+{
+
+} 

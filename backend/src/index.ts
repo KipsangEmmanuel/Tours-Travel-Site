@@ -1,7 +1,8 @@
-import express, { NextFunction, Request, Response, urlencoded } from 'express';
+import express, { json, NextFunction, Request, Response, urlencoded } from 'express';
 
 import dotenv from 'dotenv';
 import cors from 'cors';
+import user_router from './routes/userRouter';
 
 dotenv.config();
 
@@ -9,8 +10,10 @@ const app = express();
 
 
 app.use(cors());
-app.use(express.json());
+app.use(json());
 app.use(urlencoded({ extended: true }))
+
+app.use("/user", user_router);
 
 
 app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
