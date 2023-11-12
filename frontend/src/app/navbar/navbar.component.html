@@ -1,13 +1,23 @@
 <section class="nav-bar">
     <div class="logo">Go Trip</div>
     <ul class="menu">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">package</a></li>
-        <li><a href="#">Sign Up</a></li>
-        <li><a href="#">Log In</a></li>
-        <li><a href="#">Log out</a></li>
+        <li>
+            <a href="#">Home</a>
+        </li>
+        <li>
+            <a href="">About</a>
+        </li>
+        <li>
+            <a href="#">package</a>
+        </li>
+        <li *ngIf="loggedIn">
+            <a routerLink="/register">Sign Up</a>
+        </li>
+        <li *ngIf="loggedIn">
+            <a routerLink="/login" >Log In</a>
+        </li>
+        <li *ngIf="!loggedIn" >
+            <a routerLink="" >Log out</a>
+        </li>
     </ul>
-    
-
 </section>
