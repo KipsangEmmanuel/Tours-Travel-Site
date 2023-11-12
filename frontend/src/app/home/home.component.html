@@ -1,301 +1,230 @@
 
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Go Trip</title>
+</head>
+
 <body>
-    <app-navbar></app-navbar>
 
-    <!-- Home Section Start -->
-    <section class="home" id="home">
-        <div class="main-text">
-            <h3>Travel Around Kenya
-                <br> & Explore The New Destination
-            </h3>
-        
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro molestias nemo, harum debitis error itaque?</p>
-        <a href="#"><button id="home-btn">PACKAGES <i class="fa-solid fa-arrow-down"></i><button id="home-btn2"><i class="fa-sharp fa-solid fa-circle-play"></i></button></button></a>
-    </div>
-    </section>
-    <!-- Home Section End -->
+    <body>
 
+        <!--===========Nav Bar=================-->
+            <app-navbar></app-navbar>
+        <!--===============Banner================-->
+        <section class="banner">
+            <div class="banner-text-item">
+                <div class="banner-heading">
+                    <h1>Find your Next tour!</h1>
+                </div>
+                <form class="form">
+                    <input type="text" list="mylist" placeholder="Where would you like to go?">
+                    <datalist id="mylist">
+                        <option>Mombasa</option>
+                        <option>Maasai Mara National Reserve</option>
+                        <option>Amboseli</option>
+                        <option>Diani Beach</option>
+                        <option>Malindi</option>
+                        <option>Nairobi National Park</option>
+                        <option>Ngong Hills</option>
+                    </datalist>
+                    <input type="date" class="date">
+                    <a href="#" class="book">book</a>
+                </form>
+            </div>
+        </section>
 
-    <!-- Services Section Start -->
-    <section class="services" id="services">
-        <div class="heading">
-            <h3>Services</h3>
-        </div>
-            <div class="card-content">
+        <!--=========Services===============-->
+        <section class="services">
+            <div class="service-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoz-iIY_iMu3wfcqRi6vKeeuA7kXtTQA8QZg&usqp=CAU">
+                <h2>8000+ Our Local Guides</h2>
+            </div>
+            <div class="service-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUT7L_-ehbZkOzh5esy4qv4aLU_pdDQOJi2w&usqp=CAU">
+                <h2>100% Trusted Tour Agency</h2>
+            </div>
+            <div class="service-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjt1VEgulVkl-c8d_g62VPWiZg-DKrnqcBbA&usqp=CAU">
+                <h2>28+ Years of Travel Experience</h2>
+            </div>
+            <div class="service-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmL3a7uxuUZTC2n-myX2r7cT_nt67GEPeujg&usqp=CAU">
+                <h2>98% Our Travelers are Happy</h2>
+            </div>
+        </section>
+        <!--==============Places===================-->
+        <section class="places">
+            <div class="places-text">
+                <small>FEATURED TOURS PACKAGES</small>
+                <h2>Favourite Places</h2>
+            </div>
 
-                <div class="row">
-                    <i class="fas fa-globe-asia"></i>
-                    <div class="card-body">
-                        <h3>Around Kenya</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente vero suscipit eos quam explicabo quas.</p>
+            <div class="cards">
+                <div class="card">
+                    <div class="zoom-img">
+                        <div class="img-card">
+                            <img
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRihzVF8PP3P8tpxhjh_gWLLh3Royee-avxWfCuUGxVQ9vjnHrIynLRig-1ATwzy_-n8Qs&usqp=CAU">
+                        </div>
+                    </div>
+
+                    <div class="text">
+                        <span class="rating">⭐⭐⭐⭐⭐</span>
+                        <h2>The Dark Forest Adventure</h2>
+                        <p class="cost">$1870 / Per Person</p>
+                        <div class="card-box">
+                            <p class="time">🕓 3 Days</p>
+                            <p class="location">✈, Nairobi</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <div class="zoom-img">
+                        <div class="img-card">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtCl31r5WQgOjm5jKdCHK_h-t8tnsDrpozRapz_azm8OBdbIpvGnWB4eAxzrN5ZQeJL-w&usqp=CAU">
+                        </div>
+                    </div>
+
+                    <div class="text">
+                        <span class="rating">⭐⭐⭐⭐⭐</span>
+                        <h2>The Dark Forest Adventure</h2>
+                        <p class="cost">$1870 / Per Person</p>
+                        <div class="card-box">
+                            <p class="time">🕓 3 Days</p>
+                            <p class="location">✈, Nakuru</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <div class="zoom-img">
+                        <div class="img-card">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5x1Q2zyMxhR57zBeqTqqYGnN9GY4ufz8KtA&usqp=CAU">
+                        </div>
+                    </div>
+
+                    <div class="text">
+                        <span class="rating">⭐⭐⭐⭐⭐</span>
+                        <h2>The Dark Forest Adventure</h2>
+                        <p class="cost">$1870 / Per Person</p>
+                        <div class="card-box">
+                            <p class="time">🕓 3 Days</p>
+                            <p class="location">✈, Diani</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <div class="zoom-img">
+                        <div class="img-card">
+                            <img
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYB1SiT3pHG866mk2dnfzBItUJiub3pR5Vvg&usqp=CAU">
+                        </div>
+                    </div>
+
+                    <div class="text">
+                        <span class="rating">⭐⭐⭐⭐⭐</span>
+                        <h2>The Dark Forest Adventure</h2>
+                        <p class="cost">$1870 / Per Person</p>
+                        <div class="card-box">
+                            <p class="time">🕓 3 Days</p>
+                            <p class="location">✈, Naivasha</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <div class="zoom-img">
+                        <div class="img-card">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvigSBGmQEw6aAZkyMwoB5D05uv5DiGpspZA&usqp=CAU">
+                        </div>
+                    </div>
+
+                    <div class="text">
+                        <span class="rating">⭐⭐⭐⭐⭐</span>
+                        <h2>The Dark Forest Adventure</h2>
+                        <p class="cost">$1870 / Per Person</p>
+                        <div class="card-box">
+                            <p class="time">🕓 3 Days</p>
+                            <p class="location">✈, SA</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <div class="zoom-img">
+                        <div class="img-card">
+                            <img
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAuiE3vF-Ccqjxpx6SUoZZSfLUWRqr43BKIg&usqp=CAU">
+                        </div>
+                    </div>
+
+                    <div class="text">
+                        <span class="rating">⭐⭐⭐⭐⭐</span>
+                        <h2>The Dark Forest Adventure</h2>
+                        <p class="cost">$1870 / Per Person</p>
+                        <div class="card-box">
+                            <p class="time">🕓 3 Days</p>
+                            <p class="location">✈, Maasai</p>
+                        </div>
                     </div>
                 </div>
-                <div class="row">
-                    <i class="fas fa-plane"></i>
-                    <div class="card-body">
-                        <h3>Fastet Travel</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente vero suscipit eos quam explicabo quas.</p>
-
-                    </div>
-                </div>
-                <div class="row">
-                    <i class="fas fa-hotel"></i>
-                    <div class="card-body">
-                        <h3>Affordable Hotels</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente vero suscipit eos quam explicabo quas.</p>
-
-                    </div>
-                </div>
-                <div class="row">
-                    <i class="fas fa-bullhorn"></i>
-                    <div class="card-body">
-                        <h3>Safty Guide</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente vero suscipit eos quam explicabo quas.</p>
-
-                    </div>
-                </div>
-
             </div>
-
-       
-    </section>
-    <!-- Services Section End -->
-
-
-
-    <!-- About Section Start -->
-    <section class="about" id="about">
-        <div class="about-img">
-            <img src="../../assets/images/about-img.png" alt="">
-        </div>
-        <div class="about-info">
-            <h6>About us</h6>
-            <h3>How Work This Travel Agency</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione odio vitae tempora nesciunt quibusdam? Delectus voluptatibus neque quod, id cumque blanditiis, suscipit temporibus ipsam aspernatur sunt voluptatem repellat corrupti amet at velit, minus reprehenderit voluptate nobis asperiores maxime deleniti quibusdam. Numquam sequi iusto consequatur obcaecati, incidunt quia accusantium perspiciatis expedita.</p>
-
-            <button class="about-btn">Read More...</button>
-        </div>
-    </section>
-    <!-- About Section End -->
-
-
-
-
-    <!-- Gallary Section Start -->
-    <section class="gallary" id="gallary">
-        <div class="heading">
-            <h3>OUR GALLARY <i class="fa-solid fa-arrow-down"></i></h3>
-        </div>
-
-        <div class="gallary-card">
-            <div class="row">
-                <img src="../../assets/images/p1.jpg" alt="">
+        </section>
+        <!--===========About Us===============-->
+        <section class="about">
+            <div class="about-img">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHCwVvgwmF_OFDa4lFTvm2x2DcjME2CA-cbiNQxnOp6wX8OUT7kw8Rj4K3wgaBJYlpTrU&usqp=CAU">
             </div>
-            <div class="row">
-                <img src="../../assets/images/p2.png" alt="">
-            </div>
-            <div class="row">
-                <img src="../../assets/images/p3.png" alt="">
-            </div>
-            <div class="row">
-                <img src="../../assets/images/p4.png" alt="">
-            </div>
-            <div class="row">
-                <img src="../../assets/images/p5.png" alt="">
-            </div>
-           
+            <div class="about-text">
+                <small>ABOUT OUR COMPANY</small>
+                <h2>We are Go Trip Ravels Support Company</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud</p>
 
-        </div>
-    </section>
-    <!-- Gallary Section End -->
+                <label><input type="checkbox" checked>Lorem ipsum dolor sit amet</label>
+                <label><input type="checkbox" checked>consectetur adipisicing elit</label>
+                <label><input type="checkbox" checked>Architecto atque consequuntur</label>
+                <label><input type="checkbox" checked>cupiditate doloremque ducimus</label>
+                <a href="#">ABOUT US</a>
+            </div>
+        </section>
 
-
-
-
-
-    <!-- Packages Section Start -->
-    <section class="packages" id="packages">
-        <div class="main-txt">
-            <h3>Packages</h3>
-        </div>
-
-        <div class="card-content">
-            <div class="row">
-                <img src="../../assets/images/united state.png" alt="">
-                <div class="card-body">
-                    <h3>Nairobi</h3>
-                    <p>Lorem ipsum dolor sit amet.</p>
-                    <div class="rating">
-                        <i class="fa-solid fa-star checked"></i>
-                        <i class="fa-solid fa-star checked"></i>
-                        <i class="fa-solid fa-star checked"></i>
-                        <i class="fa-solid fa-star checked"></i>
-                        <i class="fa-solid fa-star checked"></i>
-                    </div>
-                    <h5>Price $999</h5>
-                    <button>Book Now</button>
-                </div>
+        <!--===========Footer=================-->
+        <div class="footer">
+            <div class="links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li>Offers & Discounts</li>
+                    <li>Get Coupon</li>
+                    <li>Contact Us</li>
+                    <li>About</li>
+                </ul>
             </div>
-            <div class="row">
-                <img src="../../assets/images/jordan.png" alt="">
-                <div class="card-body">
-                    <h3>Diani Beach</h3>
-                    <p>Lorem ipsum dolor sit amet.</p>
-                    <div class="rating">
-                        <i class="fa-solid fa-star checked"></i>
-                        <i class="fa-solid fa-star checked"></i>
-                        <i class="fa-solid fa-star checked"></i>
-                        <i class="fa-solid fa-star checked"></i>
-                        <i class="fa-solid fa-star checked"></i>
-                    </div>
-                    <h5>Price $999</h5>
-                    <button>Book Now</button>
-                </div>
+            <div class="links">
+                <h3>New Products</h3>
+                <ul>
+                    <li>Woman Cloth</li>
+                    <li>Fashion Accessories</li>
+                    <li>Man Accessories</li>
+                    <li>Rubber made Toys</li>
+                </ul>
             </div>
-            <div class="row">
-                <img src="../../assets/images/china.png" alt="">
-                <div class="card-body">
-                    <h3>Ngong Hills</h3>
-                    <p>Lorem ipsum dolor sit amet.</p>
-                    <div class="rating">
-                        <i class="fa-solid fa-star checked"></i>
-                        <i class="fa-solid fa-star checked"></i>
-                        <i class="fa-solid fa-star checked"></i>
-                        <i class="fa-solid fa-star checked"></i>
-                        <i class="fa-solid fa-star checked"></i>
-                    </div>
-                    <h5>Price $999</h5>
-                    <button>Book Now</button>
-                </div>
-            </div>
-            <div class="row">
-                <img src="../../assets/images/Mexico.png" alt="">
-                <div class="card-body">
-                    <h3>Maasai Mara National Reserve</h3>
-                    <p>Lorem ipsum dolor sit amet.</p>
-                    <div class="rating">
-                        <i class="fa-solid fa-star checked"></i>
-                        <i class="fa-solid fa-star checked"></i>
-                        <i class="fa-solid fa-star checked"></i>
-                        <i class="fa-solid fa-star checked"></i>
-                        <i class="fa-solid fa-star checked"></i>
-                    </div>
-                    <h5>Price $999</h5>
-                    <button>Book Now</button>
-                </div>
-            </div>
-            <div class="row">
-                <img src="../../assets/images/france.png" alt="">
-                <div class="card-body">
-                    <h3>Amboseli</h3>
-                    <p>Lorem ipsum dolor sit amet.</p>
-                    <div class="rating">
-                        <i class="fa-solid fa-star checked"></i>
-                        <i class="fa-solid fa-star checked"></i>
-                        <i class="fa-solid fa-star checked"></i>
-                        <i class="fa-solid fa-star checked"></i>
-                        <i class="fa-solid fa-star checked"></i>
-                    </div>
-                    <h5>Price $999</h5>
-                    <button>Book Now</button>
-                </div>
-            </div>
-            <div class="row">
-                <img src="../../assets/images/Greece.png" alt="">
-                <div class="card-body">
-                    <h3>Samburu</h3>
-                    <p>Lorem ipsum dolor sit amet.</p>
-                    <div class="rating">
-                        <i class="fa-solid fa-star checked"></i>
-                        <i class="fa-solid fa-star checked"></i>
-                        <i class="fa-solid fa-star checked"></i>
-                        <i class="fa-solid fa-star checked"></i>
-                        <i class="fa-solid fa-star checked"></i>
-                    </div>
-                    <h5>Price $999</h5>
-                    <button>Book Now</button>
-                </div>
-            </div>
-            <div class="row">
-                <img src="../../assets/images/Spain.png" alt="">
-                <div class="card-body">
-                    <h3> Mt Kenya</h3>
-                    <p>Lorem ipsum dolor sit amet.</p>
-                    <div class="rating">
-                        <i class="fa-solid fa-star checked"></i>
-                        <i class="fa-solid fa-star checked"></i>
-                        <i class="fa-solid fa-star checked"></i>
-                        <i class="fa-solid fa-star checked"></i>
-                        <i class="fa-solid fa-star checked"></i>
-                    </div>
-                    <h5>Price $999</h5>
-                    <button>Book Now</button>
-                </div>
-            </div>
-            <div class="row">
-                <img src="../../assets/images/Turkey.png" alt="">
-                <div class="card-body">
-                    <h3>Fourteen Falls</h3>
-                    <p>Lorem ipsum dolor sit amet.</p>
-                    <div class="rating">
-                        <i class="fa-solid fa-star checked"></i>
-                        <i class="fa-solid fa-star checked"></i>
-                        <i class="fa-solid fa-star checked"></i>
-                        <i class="fa-solid fa-star checked"></i>
-                        <i class="fa-solid fa-star checked"></i>
-                    </div>
-                    <h5>Price $999</h5>
-                    <button>Book Now</button>
-                </div>
+            <div class="links">
+                <h3>Support</h3>
+                <ul>
+                    <li>Frequently Asked Questions</li>
+                    <li>Report a Payment Issue</li>
+                    <li>Terms & Conditions</li>
+                    <li>Privacy Policy</li>
+                </ul>
             </div>
         </div>
-
-    </section>
-    <!-- Packages Section End -->
-
-    <!-- Section Reviews Start -->
-    <section class="reviews" id="reviews">
-        <div class="main-txt">
-            <h3>What Custommers Say</h3>
-        </div>
-        <div class="card-content">
-            <div class="row">
-                <h5><img src="../../assets/images/pic-1.png" alt="">Elon Musk</h5>
-                <div class="rating">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                </div>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam a earum commodi exercitationem explicabo amet repudiandae nemo nesciunt beatae omnis.</p>
-
-            </div>
-            <div class="row">
-                <h5><img src="../../assets/images/p2.png" alt="">Elon Musk</h5>
-                <div class="rating">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                </div>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam a earum commodi exercitationem explicabo amet repudiandae nemo nesciunt beatae omnis.</p>
-
-            </div>
-            <div class="row">
-                <h5><img src="../../assets/images/pic-3.png" alt="">Elon Musk</h5>
-                <div class="rating">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                </div>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam a earum commodi exercitationem explicabo amet repudiandae nemo nesciunt beatae omnis.</p>
-
-            </div>
-        </div>
-    </section>
+    </body>
 
 </body>
