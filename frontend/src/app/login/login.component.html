@@ -1,14 +1,15 @@
+
 <app-navbar></app-navbar>
-<body>
+<div class="parent-wrapper">
   <div class="wrapper">
-    <form action="#">
+    <form (ngSubmit)="onSubmit()" #loginform="ngForm">
       <h2>Login</h2>
-        <div class="input-field">
-        <input type="text" required>
+      <div class="input-field">
+        <input type="text" [(ngModel)]="userData.email" name="email" required>
         <label>Enter your email</label>
       </div>
       <div class="input-field">
-        <input type="password" required>
+        <input type="password" [(ngModel)]="userData.password" name="password" required>
         <label>Enter your password</label>
       </div>
       <div class="forget">
@@ -24,4 +25,4 @@
       </div>
     </form>
   </div>
-</body>
+</div>

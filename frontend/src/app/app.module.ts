@@ -10,6 +10,8 @@ import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 
@@ -21,6 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterComponent,
     LoginComponent,
     NotFoundComponent,
+    UserDashboardComponent,
+    AdminComponent,
 
   ],
   imports: [

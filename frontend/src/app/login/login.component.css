@@ -7,7 +7,7 @@
   font-family: "Open Sans", sans-serif;
 }
 
-body {
+.parent-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,7 +16,7 @@ body {
   padding: 0 10px;
 }
 
-body::before {
+.parent-wrapper::before {
   content: "";
   position: absolute;
   width: 100%;
