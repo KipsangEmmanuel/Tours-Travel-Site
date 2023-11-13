@@ -1,0 +1,56 @@
+####regester user
+post http://localhost:3550/user/register
+Content-Type: application/json
+
+{
+    "username": "sylvia",
+    "email":"silvia3@thejitu.com",
+    "password": "@Sylvia433"
+}
+
+#####get all users
+
+get http://localhost:3550/user
+token : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InN5bHZpYSIsImVtYWlsIjoic2lsdmlhM0B0aGVqaXR1LmNvbSIsImlkIjoiZTE4NjNmMDYtODNhMi00ZDU0LTk0NzgtZmQxYzgxNGFkMTU2IiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTY5OTI1MjUzOCwiZXhwIjoxNjk5MzM4OTM4fQ.VjOTvnG_ftPyvbrUnGmYpyByKqwP1gr8iM-6hbYXVM4
+
+
+#####get one user by id
+get http://localhost:3550/user/bb65d1dd-6402-497c-9a6f-9d43323c2302
+token : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InN5bHZpYSIsImVtYWlsIjoic2lsdmlhMUB0aGVqaXR1LmNvbSIsImlkIjoiNjRiM2UyZjItZjZmMC00YmVmLWJjNmUtMmY1NTkwYTEzNTI5IiwiaWF0IjoxNjk4ODYwMDE4LCJleHAiOjE2OTg5NDY0MTh9.40W972ecnaDLlA7XJXlue27c2MmPlU0xDcHdnahDlPg
+
+####login user
+
+post http://localhost:3550/user/login
+Content-Type: application/json
+
+{
+    
+    "email":"silvia3@thejitu.com",
+    "password": "@Sylvia433"
+}
+#####update user
+
+put http://localhost:3550/user
+token : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InN5bHZpYSIsImVtYWlsIjoic2lsdmlhMUB0aGVqaXR1LmNvbSIsImlkIjoiNjRiM2UyZjItZjZmMC00YmVmLWJjNmUtMmY1NTkwYTEzNTI5IiwiaWF0IjoxNjk4ODYwMDE4LCJleHAiOjE2OTg5NDY0MTh9.40W972ecnaDLlA7XJXlue27c2MmPlU0xDcHdnahDlPg
+Content-Type: application/json
+
+{
+    "id":"bb65d1dd-6402-497c-9a6f-9d43323c2302",
+    "username": "mogutu",
+    "email":"mogutu@thejitu.com"    
+    
+}
+
+
+##### delete user by ID
+delete http://localhost:3550/user/bb65d1dd-6402-497c-9a6f-9d43323c2302
+token : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InN5bHZpYSIsImVtYWlsIjoic2lsdmlhMUB0aGVqaXR1LmNvbSIsImlkIjoiNjRiM2UyZjItZjZmMC00YmVmLWJjNmUtMmY1NTkwYTEzNTI5IiwiaWF0IjoxNjk4ODYwMDE4LCJleHAiOjE2OTg5NDY0MTh9.40W972ecnaDLlA7XJXlue27c2MmPlU0xDcHdnahDlPg
+
+###
+get http://localhost:9500/user/check_user_details
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkJvbWJvIEtpcHNhbmciLCJlbWFpbCI6ImJvbWJvQGdtYWlsLmNvbSIsImlkIjoiMmFmOTliM2QtMDRhYy00YmFjLTk0NWMtNzVjODk5ZmUxZmU0Iiwicm9sZSI6InVzZXIiLCJpYXQiOjE2OTk4ODcwNDgsImV4cCI6MTY5OTk3MzQ0OH0.IVUE_sDBpRM6VgxcnU3xQLNzbNgLt2qhk7fTfc7HYaU
+
+#####
+
+get http://localhost:3550/user/unassigned
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InN5bHZpYSIsImVtYWlsIjoic2lsdmlhM0B0aGVqaXR1LmNvbSIsImlkIjoiZTE4NjNmMDYtODNhMi00ZDU0LTk0NzgtZmQxYzgxNGFkMTU2IiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTY5OTI1MjUzOCwiZXhwIjoxNjk5MzM4OTM4fQ.VjOTvnG_ftPyvbrUnGmYpyByKqwP1gr8iM-6hbYXVM4

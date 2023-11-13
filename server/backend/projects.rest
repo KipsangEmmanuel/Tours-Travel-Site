@@ -1,0 +1,71 @@
+####create project
+post http://localhost:3550/project/
+Content-Type: application/json
+
+{
+    "project_name": "test project",
+    "project_description":"details on test project",
+    "dueDate" : "10/27/2036"
+    
+}
+
+#####get all projects
+
+get http://localhost:3550/project
+
+
+
+#####get one project by id
+get http://localhost:3550/project/c34abadd-d075-4606-acd0-5e4ef96b3f57
+
+
+#####update project
+
+put http://localhost:3550/project
+Content-Type: application/json
+
+{
+    "project_id":"d54125bd-caa0-4537-91b6-b1a2e504c816",
+    "project_name": "updated project",
+    "project_description":"details on first project",
+    "dueDate" : "10/27/2019"    
+    
+}
+### assign project 
+post http://localhost:3550/project/assign
+Content-Type: application/json
+
+{
+    "project_id":"4b33e1da-cb32-4482-928e-f03d6f52a990",
+    "user_id":"018ed0d4-879b-4a48-97fa-9748c3d34b10"
+}
+
+#### unassign project
+post http://localhost:3550/project/unAssign
+Content-Type: application/json
+
+{
+    "project_id":"4b33e1da-cb32-4482-928e-f03d6f52a990",
+    "user_id":"018ed0d4-879b-4a48-97fa-9748c3d34b10"
+}
+
+
+##### complete project by ID
+get http://localhost:3550/project/complete/1b94f495-ece1-41fa-ab7f-8fc75a3e4fe2
+
+##### inprogress project by ID
+get http://localhost:3550/project/inprogress/1b94f495-ece1-41fa-ab7f-8fc75a3e4fe2
+
+##### delete project by ID
+delete http://localhost:3550/project/d54125bd-caa0-4537-91b6-b1a2e504c816
+
+#### get project assigned to one user
+
+post http://localhost:3550/project/getUserAssignedProjects
+Content-Type: application/json
+
+{
+    "user_id": "e1863f06-83a2-4d54-9478-fd1c814ad156"
+}
+
+
