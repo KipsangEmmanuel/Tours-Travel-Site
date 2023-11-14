@@ -1,6 +1,7 @@
 CREATE OR ALTER PROCEDURE [dbo].[createTour]
 	@tour_id varchar(100),
 	@tour_name varchar(100),
+    @price INT,
 	@start_date Date,
 	@end_date Date,
 	@tour_description varchar(250)
@@ -9,7 +10,7 @@ BEGIN
     SET NOCOUNT ON;
 
     INSERT INTO dbo.tours
-    (tour_id, tour_name, start_date, end_date, tour_description)
+    (tour_id, tour_name, price, start_date, end_date, tour_description)
     VALUES
-    (@tour_id, @tour_name, @start_date, @end_date, @tour_description);
+    (@tour_id, @tour_name, @price, @start_date, @end_date, @tour_description);
 END

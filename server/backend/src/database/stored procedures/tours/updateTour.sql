@@ -1,7 +1,9 @@
 CREATE PROCEDURE [dbo].[updateTour]
 	@tour_id varchar(100),
 	@tour_name varchar(100),
-	@duedate date,
+	@price INT,
+	@start_date Date,
+	@end_date Date,
 	@tour_description varchar(500)
 as
 
@@ -11,8 +13,10 @@ begin
 	UPDATE dbo.tours
 	SET 
 	tour_name=@tour_name,
+	price=@price,
 	tour_description=@tour_description,
-	duedate=@duedate
+	start_date=@start_date,
+	end_date=@end_date
 	
 	WHERE tour_id = @tour_id ;
 end;

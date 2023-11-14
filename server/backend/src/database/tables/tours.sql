@@ -2,6 +2,7 @@ CREATE TABLE tours (
 	tour_id varchar(100) NOT NULL PRIMARY KEY,
 	tour_name varchar(250) NOT NULL,
 	tour_description varchar(250) NOT NULL,
+	price INT,
 	start_date DATE ,
 	end_date DATE ,
 	created_at TIMESTAMP ,

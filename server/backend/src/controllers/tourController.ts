@@ -13,7 +13,7 @@ import { user } from "../types/userInterfaces";
 
 export const createTour = async (req: Request, res: Response) => {
   try {
-    const { tour_name, tour_description, start_date, end_date } = req.body;
+    const { tour_name, tour_description, price, start_date, end_date } = req.body;
 
     const { error } = validateTour.validate(req.body);
 
@@ -27,6 +27,7 @@ export const createTour = async (req: Request, res: Response) => {
       tour_name,
       start_date,
       end_date,
+      price,
       tour_description,
     };
 
@@ -44,7 +45,7 @@ export const createTour = async (req: Request, res: Response) => {
 
 export const updateTour = async (req: Request, res: Response) => {
   try {
-    const { tour_id, tour_name, tour_description, start_date, end_date } = req.body;
+    const { tour_id, tour_name, tour_description, price, start_date, end_date } = req.body;
 
     const { error } = validateUpdateTour.validate(req.body);
     if (error)
@@ -54,6 +55,7 @@ export const updateTour = async (req: Request, res: Response) => {
       tour_id,
       tour_name,
       tour_description,
+      price,
       start_date,
       end_date
     };
