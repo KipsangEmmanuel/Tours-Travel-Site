@@ -159,11 +159,11 @@
 <!-- Main modal -->
 
 <div
-  class="grid border rounded-xl gap-10 mx-5 my-10 shadow-sm divide-y overflow-hidden sm:flex :divide-y-0 sm:divide-x flex-wrap dark:border-gray-700 dark:shadow-slate-700/[.7] dark:divide-gray-600"
+  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 grid border rounded-xl gap-10 mx-5 my-10 shadow-sm divide-y overflow-hidden sm:flex :divide-y-0 sm:divide-x flex-wrap dark:border-gray-700 dark:shadow-slate-700/[.7] dark:divide-gray-600"
 >
   <div
     *ngFor="let tour of tours"
-    class="w-80 flex flex-col flex-[1_0_0%] bg-white dark:bg-gray-800"
+    class="w-full sm:w-96 flex flex-col mb-6 mx-2 bg-white dark:bg-gray-800"
   >
     <!-- <img class="w-full h-auto rounded-t-xl sm:rounded-se-none" src="https://images.unsplash.com/photo-1680868543815-b8666dba60f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2532&q=80" alt="Image Description"> -->
     <div class="p-4 flex-1 md:p-5">
