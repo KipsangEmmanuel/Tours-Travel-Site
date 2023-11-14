@@ -13,7 +13,7 @@ import { user } from "../types/userInterfaces";
 
 export const createTour = async (req: Request, res: Response) => {
   try {
-    const { tour_name, tour_description, period } = req.body;
+    const { tour_name, tour_description, start_date, end_date } = req.body;
 
     const { error } = validateTour.validate(req.body);
 
@@ -25,7 +25,8 @@ export const createTour = async (req: Request, res: Response) => {
     const newTour: Tour = {
       tour_id: uuidv4(),
       tour_name,
-      period,
+      start_date,
+      end_date,
       tour_description,
     };
 
@@ -43,7 +44,7 @@ export const createTour = async (req: Request, res: Response) => {
 
 export const updateTour = async (req: Request, res: Response) => {
   try {
-    const { tour_id, tour_name, tour_description, period } = req.body;
+    const { tour_id, tour_name, tour_description, start_date, end_date } = req.body;
 
     const { error } = validateUpdateTour.validate(req.body);
     if (error)
@@ -53,7 +54,8 @@ export const updateTour = async (req: Request, res: Response) => {
       tour_id,
       tour_name,
       tour_description,
-      period,
+      start_date,
+      end_date
     };
 
     const ProcedureName = "updateTour";
@@ -70,7 +72,6 @@ export const updateTour = async (req: Request, res: Response) => {
     });
   }
 };
-
 
 export const deleteTour = async (req: Request, res: Response) => {
   try {
