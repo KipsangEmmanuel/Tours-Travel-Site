@@ -14,6 +14,8 @@ export class NavbarComponent {
   loggedInTrue = localStorage.getItem('loggedIn');
   loggedIn = this.loggedInTrue;
 
+  // loggedIn=true
+
   logOut() {
     this.router.navigate([''])
     localStorage.clear()

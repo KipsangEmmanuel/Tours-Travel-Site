@@ -1,11 +1,8 @@
 export interface Tour {
-    tourID:string,
-    name:string,
-    description:string,
-    destination:string,
+    tour_id:string,
+    tour_name:string,
+    tour_description:string,
     price: number;
-    type:string,
-    startDate:string,
-    endDate:string,
-    duration:string
+    start_date:string,
+    end_date:string,
 }

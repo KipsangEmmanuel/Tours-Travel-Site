@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Tour } from 'src/app/interfaces/tour';
@@ -11,35 +11,34 @@ import { UserService } from '../services/user.service';
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
-export class AdminComponent {
+export class AdminComponent implements OnInit {
   visible = true
-  notVisible=false
+  // notVisible=false
   loggedIn=true
 
   createTourForm!: FormGroup
   // isFormVisible: boolean = false; 
   tours!: Tour[];
   users!: UserDetails[];
-  // visible = true
+  // visible:boolean = true
  
   constructor(private tourService: TourService, private formBuilder:FormBuilder,private router: Router, private userService:UserService ){
 
     this.createTourForm=this.formBuilder.group({
-      name:['',[Validators.required]], 
-      description: ['',[Validators.required]],
-      destination: ['',[Validators.required]],
-      price: ['',[Validators.required]],
-      type: ['',[Validators.required]],
-      startDate:['',[Validators.required]],
-      endDate:['',[Validators.required]],
-      duration:['',[Validators.required]],
+      tour_name:['',[Validators.required]], 
+      tour_description: ['',[Validators.required]],
+      start_date: ['',[Validators.required]],
+      end_date: ['',[Validators.required]],
+      price: ['',[Validators.required]]
     })
 
   }
 
+
+
   ngOnInit() {
     this.getTours();
-    this.getUsers();
+    // this.getUsers();
     
   }
 
@@ -56,6 +55,8 @@ export class AdminComponent {
 
   createTour() {
     let createTour: Tour = this.createTourForm.value;
+    console.log(createTour);
+    
     this.tourService.createTour(createTour).subscribe(
       () => {
         this.getTours();
@@ -70,16 +71,16 @@ export class AdminComponent {
   }
 
 
-  getUsers() {
-    this.userService.getUsers().subscribe(
-      (response: UserDetails[]) => {
-        this.users = response;
-      },
-      (error: any) => {
-        console.error('Error fetching users:', error);
-      }
-    );
-  }
+  // getUsers() {
+  //   this.userService.getUsers().subscribe(
+  //     (response: UserDetails[]) => {
+  //       this.users = response;
+  //     },
+  //     (error: any) => {
+  //       console.error('Error fetching users:', error);
+  //     }
+  //   );
+  // }
 
   loadTours(): void {
     this.tourService.getTours().subscribe(
@@ -93,7 +94,7 @@ export class AdminComponent {
   }
 
   deleteTour(tourID: string): void {
-    alert('Are you sure You want to delete,this action is irreversible')
+    // alert('Are you sure!')
     this.tourService.deleteTour(tourID).subscribe(
       () => {
         this.loadTours();

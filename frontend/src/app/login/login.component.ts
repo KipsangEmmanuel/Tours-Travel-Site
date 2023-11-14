@@ -58,7 +58,7 @@ export class LoginComponent {
         this.link = 'https://www.architecturaldigest.in/wp-content/themes/cntraveller/images/check-circle.gif';
         this.loggedIn = true;
 
-        // localStorage.setItem('loggedIn', `${this.loggedIn}`);
+        localStorage.setItem('loggedIn', `${this.loggedIn}`);
 
         let role = await this.userService.checkDetails();
 
@@ -71,7 +71,7 @@ export class LoginComponent {
           if (role == 'admin') {
             this.router.navigate(['admin']);
           } else if (role == 'user') {
-            this.router.navigate(['user-dashboard']);
+            this.router.navigate(['user']);
           }
         }, 2000);
       }

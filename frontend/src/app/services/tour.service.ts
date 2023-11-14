@@ -10,19 +10,20 @@ export class TourService {
 
   constructor(private http: HttpClient) {}
   createTour(tour: Tour): Observable<any> {
-    return this.http.post('http://localhost:4500/tours/create', tour);
+    return this.http.post('http://localhost:9500/tour/', tour);
+    
   }
 
   getTours(): Observable<Tour[]> {
-    return this.http.get<Tour[]>('http://localhost:4500/tours/all', {
+    return this.http.get<Tour[]>('http://localhost:9500/tour/', {
       headers: {
         'Content-type': 'application/json',
       },
     });
   }
 
-  deleteTour(tourID: string): Observable<any> {
-    return this.http.delete(`http://localhost:4500/tours/${tourID}`)
+  deleteTour(tour_id: string): Observable<any> {
+    return this.http.delete(`http://localhost:9500/tour/${tour_id}`)
    
   }
 }
