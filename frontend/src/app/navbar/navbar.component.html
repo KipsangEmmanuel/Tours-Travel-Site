@@ -13,11 +13,11 @@
         <li *ngIf="loggedIn">
             <a routerLink="/register">Sign Up</a>
         </li>
-        <li *ngIf="loggedIn">
+        <li *ngIf="!loggedIn">
             <a routerLink="/login" >Log In</a>
         </li>
-        <li *ngIf="!loggedIn" >
-            <a routerLink="" >Log out</a>
+        <li *ngIf="loggedIn" >
+            <a (click)="logOut()" >Log out</a>
         </li>
     </ul>
 </section>

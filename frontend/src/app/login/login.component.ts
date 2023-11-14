@@ -55,7 +55,6 @@ export class LoginComponent {
        let succ= this.successMessage = response.message;
       //  console.log(succ);
        
-        this.link = 'https://www.architecturaldigest.in/wp-content/themes/cntraveller/images/check-circle.gif';
         this.loggedIn = true;
 
         localStorage.setItem('loggedIn', `${this.loggedIn}`);
@@ -73,7 +72,7 @@ export class LoginComponent {
           } else if (role == 'user') {
             this.router.navigate(['user']);
           }
-        }, 2000);
+        }, 1000);
       }
     } catch (error) {
       console.error('Login error:', error);

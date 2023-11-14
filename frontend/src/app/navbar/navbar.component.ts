@@ -8,7 +8,8 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent {
   constructor(private router: Router) {
-
+    console.log(this.loggedInTrue);
+    
   }
 
   loggedInTrue = localStorage.getItem('loggedIn');
@@ -17,7 +18,7 @@ export class NavbarComponent {
   // loggedIn=true
 
   logOut() {
-    this.router.navigate([''])
     localStorage.clear()
+    this.router.navigate([''])
   }
 }
