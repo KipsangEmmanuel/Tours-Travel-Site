@@ -20,11 +20,7 @@ export class LoginService {
     // console.log(data)
     let token = data.token
 
-    
-   
-    
-
-    localStorage.setItem('item', token)
+    localStorage.setItem('token', token)
     // console.log(token.username);
     
 

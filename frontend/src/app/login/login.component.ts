@@ -53,7 +53,7 @@ export class LoginComponent {
 
         this.loggedInState = true;
        let succ= this.successMessage = response.message;
-       console.log(succ);
+      //  console.log(succ);
        
         this.link = 'https://www.architecturaldigest.in/wp-content/themes/cntraveller/images/check-circle.gif';
         this.loggedIn = true;
@@ -69,10 +69,9 @@ export class LoginComponent {
           this.loggedInState = false;
 
           if (role == 'admin') {
-            console.log(role)
             this.router.navigate(['admin']);
           } else if (role == 'user') {
-            this.router.navigate(['user']);
+            this.router.navigate(['user-dashboard']);
           }
         }, 2000);
       }

@@ -6,7 +6,6 @@ import { UserDetails } from 'src/app/interfaces/user';
 import { TourService } from 'src/app/services/tour.service';
 import { UserService } from '../services/user.service';
 
-
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -43,8 +42,6 @@ export class AdminComponent {
     this.getUsers();
     
   }
-
-
 
   getTours() {
     this.tourService.getTours().subscribe(
@@ -84,9 +81,6 @@ export class AdminComponent {
     );
   }
 
-
-
-
   loadTours(): void {
     this.tourService.getTours().subscribe(
       (tours) => {
@@ -97,7 +91,6 @@ export class AdminComponent {
       }
     );
   }
-
 
   deleteTour(tourID: string): void {
     alert('Are you sure You want to delete,this action is irreversible')

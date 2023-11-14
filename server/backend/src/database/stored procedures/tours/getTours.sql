@@ -1,0 +1,6 @@
+CREATE OR ALTER PROCEDURE fetchAllTours
+AS
+BEGIN
+    SELECT * FROM Tours
+
+END

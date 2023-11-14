@@ -71,7 +71,7 @@ h2 {
   border: none;
   outline: none;
   font-size: 16px;
-  color: #fff;
+  color: rgb(44, 42, 42);
 }
 
 .input-field input:focus~label,
@@ -110,6 +110,9 @@ h2 {
 .wrapper a:hover {
   text-decoration: underline;
 }
+/* .input{
+  color: rgb(245, 56, 56);
+} */
 
 button {
   background: #fff;
