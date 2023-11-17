@@ -8,6 +8,7 @@ CREATE TABLE tours (
 	created_at TIMESTAMP ,
 )
 
+
 select * from tours
 
 -- drop TABLE tours

@@ -33,6 +33,7 @@ export const createTour = async (req: Request, res: Response) => {
 
     const procedure = "createTour";
     const params = newTour;
+console.log(params);
 
     await execute(procedure, params);
     return res.send({ message: "Tour created successfully" });
@@ -77,6 +78,7 @@ export const updateTour = async (req: Request, res: Response) => {
 
 export const deleteTour = async (req: Request, res: Response) => {
   try {
+    //get the tour id and pass the params
     const tour_id = req.params.tour_id;
     if (!tour_id) return res.status(400).send({ message: "Id is required" });
 
