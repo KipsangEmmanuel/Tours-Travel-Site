@@ -9,12 +9,13 @@ import { TourService } from '../services/tour.service';
 })
 export class UserDashboardComponent implements OnInit {
 
-  tours!:Tour[]
+  tours: Tour[] = [];
+  bookedTours: Tour[] = [];
 
-  constructor(private tourService:TourService){}
+  constructor(private tourService: TourService) { }
 
-  ngOnInit(){
-    this.getTours()
+  ngOnInit() {
+    this.getTours();
   }
 
   getTours() {
@@ -28,5 +29,19 @@ export class UserDashboardComponent implements OnInit {
     );
   }
 
+  bookTour(tour: Tour) {
+    const index = this.tours.indexOf(tour);
+    if (index !== -1) {
+      this.tours.splice(index, 1); // Remove from available tours
+      this.bookedTours.push(tour); // Add to booked tours
+    }
+  }
 
+  cancelBooking(tour: Tour) {
+    const index = this.bookedTours.indexOf(tour);
+    if (index !== -1) {
+      this.bookedTours.splice(index, 1); // Remove from booked tours
+      this.tours.push(tour); // Add back to available tours
+    }
+  }
 }

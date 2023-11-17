@@ -17,7 +17,7 @@
             <a routerLink="/login" >Log In</a>
         </li>
         <li *ngIf="loggedIn" >
-            <a (click)="logOut()" >Log out</a>
+            <a (click)="logOut()" routerLink="/login">Log out</a>
         </li>
     </ul>
 </section>

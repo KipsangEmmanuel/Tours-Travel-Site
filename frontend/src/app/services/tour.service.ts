@@ -7,11 +7,10 @@ import { Tour } from '../interfaces/tour';
   providedIn: 'root'
 })
 export class TourService {
-
   constructor(private http: HttpClient) {}
+
   createTour(tour: Tour): Observable<any> {
     return this.http.post('http://localhost:9500/tour/', tour);
-    
   }
 
   getTours(): Observable<Tour[]> {
@@ -22,8 +21,11 @@ export class TourService {
     });
   }
 
+  updateTour(tour_id: string, updatedTour: any): Observable<any> {
+    return this.http.put(`http://localhost:9500/tour/${tour_id}`, updatedTour);
+  }
+
   deleteTour(tour_id: string): Observable<any> {
-    return this.http.delete(`http://localhost:9500/tour/${tour_id}`)
-   
+    return this.http.delete(`http://localhost:9500/tour/${tour_id}`);
   }
 }

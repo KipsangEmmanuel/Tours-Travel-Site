@@ -21,8 +21,23 @@ export class AdminComponent implements OnInit {
   tours!: Tour[];
   users!: UserDetails[];
   // visible:boolean = true
+
+  updateTourVisible = false;
+  updateTourForm!: FormGroup;
+  selectedTour: Tour | null = null;
+
+  editTourForm: FormGroup;
+  isEditModalVisible: boolean = false;
+
+  
+
  
-  constructor(private tourService: TourService, private formBuilder:FormBuilder,private router: Router, private userService:UserService ){
+  constructor(
+    private tourService: TourService,
+    private formBuilder:FormBuilder,
+    private router: Router, 
+    private userService:UserService 
+    ){
 
     this.createTourForm=this.formBuilder.group({
       tour_name:['',[Validators.required]], 
@@ -30,8 +45,50 @@ export class AdminComponent implements OnInit {
       start_date: ['',[Validators.required]],
       end_date: ['',[Validators.required]],
       price: ['',[Validators.required]]
-    })
+    });
 
+    this.editTourForm = this.formBuilder.group({
+      tour_name: ['', Validators.required],
+      tour_description: ['', Validators.required],
+      start_date: ['', Validators.required],
+      end_date: ['', Validators.required],
+      price: ['', Validators.required]
+    });
+
+  }
+
+
+  openEditTourModal(tour: Tour) {
+    this.selectedTour = tour;
+    this.editTourForm.patchValue({
+      tour_name: tour.tour_name,
+      tour_description: tour.tour_description,
+      start_date: tour.start_date,
+      end_date: tour.end_date,
+      price: tour.price
+    });
+    this.isEditModalVisible = true;
+  }
+
+  closeEditTourModal() {
+    this.isEditModalVisible = false;
+  }
+
+
+  saveChanges() {
+    if (this.selectedTour) {
+      // Implement logic to update the tour details using TourService
+      this.tourService.updateTour(this.selectedTour.tour_id, this.editTourForm.value).subscribe(
+        () => {
+          this.getTours();
+          console.log('Tour updated successfully');
+        },
+        (error: any) => {
+          console.error('Error updating tour:', error);
+        }
+      );
+      this.closeEditTourModal();
+    }
   }
 
 
@@ -107,3 +164,5 @@ export class AdminComponent implements OnInit {
 
   
 }
+
+
