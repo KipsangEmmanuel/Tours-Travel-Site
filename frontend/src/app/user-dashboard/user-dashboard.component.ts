@@ -32,16 +32,16 @@ export class UserDashboardComponent implements OnInit {
   bookTour(tour: Tour) {
     const index = this.tours.indexOf(tour);
     if (index !== -1) {
-      this.tours.splice(index, 1); // Remove from available tours
-      this.bookedTours.push(tour); // Add to booked tours
+      this.tours.splice(index, 1); 
+      this.bookedTours.push(tour); 
     }
   }
 
   cancelBooking(tour: Tour) {
     const index = this.bookedTours.indexOf(tour);
     if (index !== -1) {
-      this.bookedTours.splice(index, 1); // Remove from booked tours
-      this.tours.push(tour); // Add back to available tours
+      this.bookedTours.splice(index, 1); 
+      this.tours.push(tour); 
     }
   }
 }

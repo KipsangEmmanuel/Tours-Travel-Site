@@ -58,7 +58,7 @@ h2 {
   top: 50%;
   left: 0;
   transform: translateY(-50%);
-  color: #fff;
+  /* color: rgb(12, 1, 1); */
   font-size: 16px;
   pointer-events: none;
   transition: 0.15s ease;
