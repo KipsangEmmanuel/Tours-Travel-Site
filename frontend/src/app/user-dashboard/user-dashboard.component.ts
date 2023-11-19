@@ -16,6 +16,7 @@ export class UserDashboardComponent implements OnInit {
 
   ngOnInit() {
     this.getTours();
+    this.loadBookedTours();
   }
 
   getTours() {
@@ -34,6 +35,7 @@ export class UserDashboardComponent implements OnInit {
     if (index !== -1) {
       this.tours.splice(index, 1); 
       this.bookedTours.push(tour); 
+      this.saveBookedTours();
     }
   }
 
@@ -42,6 +44,18 @@ export class UserDashboardComponent implements OnInit {
     if (index !== -1) {
       this.bookedTours.splice(index, 1); 
       this.tours.push(tour); 
+      this.saveBookedTours();
     }
+  }
+
+  private loadBookedTours() {
+    const storedBookedTours = localStorage.getItem('bookedTours');
+    if (storedBookedTours) {
+      this.bookedTours = JSON.parse(storedBookedTours);
+    }
+  }
+
+  private saveBookedTours() {
+    localStorage.setItem('bookedTours', JSON.stringify(this.bookedTours));
   }
 }
