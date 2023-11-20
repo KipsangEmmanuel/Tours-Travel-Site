@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { AdminComponent } from './admin/admin.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -25,6 +26,7 @@ import { AdminComponent } from './admin/admin.component';
     NotFoundComponent,
     UserDashboardComponent,
     AdminComponent,
+    ProfileComponent,
 
   ],
   imports: [
