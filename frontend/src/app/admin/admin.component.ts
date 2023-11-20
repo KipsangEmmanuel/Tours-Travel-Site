@@ -99,6 +99,8 @@ export class AdminComponent implements OnInit {
     
   }
 
+  
+
   getTours() {
     this.tourService.getTours().subscribe(
       (response) => {

@@ -94,6 +94,7 @@ ul.menu {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .banner::before {
@@ -187,6 +188,7 @@ ul.menu {
   flex-flow: row;
   align-items: center;
   justify-content: center;
+  margin-top: 10px;
 }
 
 .service-item {

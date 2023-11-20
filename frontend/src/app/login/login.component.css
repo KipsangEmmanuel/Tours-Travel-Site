@@ -14,6 +14,7 @@
   min-height: 100vh;
   width: 100%;
   padding: 0 10px;
+  position: relative;
 }
 
 .parent-wrapper::before {
@@ -21,7 +22,8 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn7-J8vu9ZswCs_MSTylvANYtEDNFuKv_SWQ&usqp=CAU");
+  background: url("https://www.codingnepalweb.com/demos/create-glassmorphism-login-form-html-css/hero-bg.jpg"), #000;
+
   background-position: center;
   background-size: cover;
 }
@@ -34,6 +36,7 @@
   border: 1px solid rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(9px);
   -webkit-backdrop-filter: blur(9px);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 form {
@@ -49,7 +52,6 @@ h2 {
 
 .input-field {
   position: relative;
-  border-bottom: 2px solid #ccc;
   margin: 15px 0;
 }
 
@@ -58,10 +60,10 @@ h2 {
   top: 50%;
   left: 0;
   transform: translateY(-50%);
-  /* color: rgb(12, 1, 1); */
   font-size: 16px;
+  color: #ccc;
   pointer-events: none;
-  transition: 0.15s ease;
+  transition: 0.3s ease;
 }
 
 .input-field input {
@@ -72,13 +74,22 @@ h2 {
   outline: none;
   font-size: 16px;
   color: rgb(44, 42, 42);
+  border-bottom: 2px solid #ccc;
+  transition: border-bottom 0.3s ease, box-shadow 0.3s ease, color 0.3s ease; /* Added color transition */
+}
+
+.input-field input:focus,
+.input-field input:valid {
+  border-bottom: 2px solid #7d2ae8;
+  box-shadow: 0 4px 8px rgba(125, 42, 232, 0.1);
+  color: #fff; /* Change text color to white on focus */
 }
 
 .input-field input:focus~label,
 .input-field input:valid~label {
   font-size: 0.8rem;
-  top: 10px;
-  transform: translateY(-120%);
+  top: 5px;
+  transform: translateY(-100%);
 }
 
 .forget {
@@ -110,9 +121,6 @@ h2 {
 .wrapper a:hover {
   text-decoration: underline;
 }
-/* .input{
-  color: rgb(245, 56, 56);
-} */
 
 button {
   background: #fff;
