@@ -82,7 +82,7 @@ ul.menu {
 
 /*=============================Banner=============================*/
 .banner {
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9wBe8QX3XTVj5mj1iKmopAbA6lN1WqbSPYg&usqp=CAU");
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc8nqry-hY9WlPap_A9ApQU4O3RpWe8jSPaQ&usqp=CAU");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -250,6 +250,8 @@ ul.menu {
   align-items: center;
   justify-items: center;
   text-align: center;
+  /* margin-top: 1000px; */
+  /* gap: 10px; */
 }
 
 .card {
@@ -259,6 +261,7 @@ ul.menu {
   border-top-right-radius: 8px;
   width: 80%;
   height: auto;
+
 }
 
 .card img {
@@ -551,6 +554,10 @@ ul.menu {
     flex: 1;
     margin-bottom: -130px;
     width: 400px;
+  }
+
+  .places{
+    margin-top: 1000px;
   }
 
   .places-text {
