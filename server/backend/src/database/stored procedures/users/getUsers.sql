@@ -1,12 +1,7 @@
-CREATE OR ALTER  PROCEDURE [dbo].[getUsers]
-as
+CREATE PROCEDURE getUsers_
+AS
+BEGIN
+    SELECT * FROM users_ WHERE role != 'admin'
+END;
 
-set nocount on;
-
-begin
-	select	u.[_id],
-			u.username,
-			u.email,
-			u.role
-	from	[users] u where u.role = 1
-end;
+-- drop PROCEDURE getUsers

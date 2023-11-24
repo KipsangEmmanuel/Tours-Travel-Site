@@ -4,7 +4,7 @@ import {
   deleteUser,
   getUnAssignedUser,
   getUser,
-  getUsers,
+  getAllUsers,
   loginUser,
   registerUser,
   updateUser,
@@ -14,7 +14,7 @@ import { verifyToken } from "../middleware/verifyToken";
 const user_router = Router();
 
 user_router.post("/register", registerUser);
-user_router.get("/", verifyToken, getUsers);
+user_router.get("/users", verifyToken, getAllUsers);
 user_router.get("/unassigned",verifyToken,getUnAssignedUser)
 user_router.put("/", verifyToken, updateUser);
 user_router.get("/check_user_details", verifyToken, checkUserDetails);

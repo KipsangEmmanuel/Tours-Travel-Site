@@ -10,6 +10,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import user_router from "./routes/userRouter";
 import tour_router from "./routes/tourRouter";
+import bookingRouter from "./routes/bookingRouter";
 
 dotenv.config();
 
@@ -20,6 +21,7 @@ app.use(cors());
 
 app.use("/user", user_router);
 app.use("/tour", tour_router);
+app.use("/book", bookingRouter);
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   res.json({

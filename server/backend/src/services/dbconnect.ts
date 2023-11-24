@@ -17,7 +17,7 @@ export async function query(queryString: string): Promise<sql.IResult<any>> {
     const result = await request.query(queryString);
     return result;
   } catch (error) {
-    throw new Error(`Error executing SQL query: ${error}`);
+    throw new Error(`${error}`);
   }
 }
 

@@ -5,7 +5,7 @@ import { createBooking, deleteBooking, getBooking } from '../controllers/booking
 
 const bookingRouter = Router();
 
-bookingRouter.post('/', createBooking);
+bookingRouter.post('/booking', createBooking);
 bookingRouter.get('/:booking_id', getBooking);
 bookingRouter.delete('/:booking_id', deleteBooking);
 

@@ -9,8 +9,8 @@ AS
 BEGIN
 	SET NOCOUNT ON;
 
-	INSERT INTO users
-	(_id, username, email,password)
+	INSERT INTO users_
+	(id, username, email,password)
 	VALUES
 	(@id, @username, @email, @password);
 END;

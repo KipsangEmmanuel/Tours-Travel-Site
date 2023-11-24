@@ -20,14 +20,14 @@ export const sqlConfig: sql.config = {
   },
 };
 
-// const testConnection=()=>{
-//   if (sqlConfig){
-//     console.log('connection is woking well');
-//   }else{
-//     console.log('no connection');
+const testConnection=()=>{
+  if (sqlConfig){
+    console.log('DB connection is woking well');
+  }else{
+    console.log('no connection');
     
-//   }
+  }
   
-// }
-// testConnection()
+}
+testConnection()
 

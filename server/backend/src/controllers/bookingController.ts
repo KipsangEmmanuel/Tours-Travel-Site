@@ -1,4 +1,3 @@
-// bookingController.ts
 
 import { Request, Response } from 'express';
 import { execute } from '../services/dbconnect';

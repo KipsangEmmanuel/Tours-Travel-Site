@@ -1,8 +1,9 @@
 import { Request, Response } from "express";
 import { execute, query } from "../services/dbconnect";
-
 import _ from "lodash";
-import { v4 as uuidv4 } from "uuid";
+import bcrypt from 'bcrypt'
+import mssql from 'mssql'
+import { v4 as uuidv4, v4 } from "uuid";
 import { ExtendedUser, updatUser, user } from "../types/userInterfaces";
 import { generateToken } from "../services/tokenGenerator";
 import {
@@ -11,16 +12,30 @@ import {
   validateUpdateuser,
   validateuserId,
 } from "../validators/userValidator";
-import { comparePass, hashPass } from "../services/passwordHash";
+import { comparePass } from "../services/passwordHash";
+import { sqlConfig } from "../config/config";
 
-export const getUsers = async (req: Request, res: Response) => {
-  try {
-    const procedureName = "getUsers";
+
+
+export const getAllUsers = async (req: Request, res: Response) => {
+  try{
+    const procedureName = "getUsers_";
+
     const result = await query(`EXEC ${procedureName}`);
-    return res.json(result.recordset);
-  } catch (error) {
+
+    console.log(result);
+    
+  
+    res.json(result.recordset);
+  }catch(error) {
     console.log(error);
+    res.status(500).send({
+      error: (error as Error).message,
+      message: "Internal Server Error"
+    })
+    
   }
+
 };
 
 export const getUser = async (req: Request, res: Response) => {
@@ -45,52 +60,86 @@ export const getUser = async (req: Request, res: Response) => {
   }
 };
 
-export const registerUser = async (req: Request, res: Response) => {
-  try {
-    const { username, password, email } = req.body;
+export const registerUser = async(req: Request, res: Response) => {
+  try{
+    let {username, password, email} = req.body
 
-    const { error } = validateRegisterUser.validate(req.body);
+    let {error} = validateRegisterUser.validate(req.body)
 
-    if (error)
-      return res.status(400).send({
-        error:
-          "password should be atleast 8 characters long with letters symbols and uppercase",
-      });
+    if(error){
+      return res.status(404).json({error: error.details})
+    }
 
-    const newPassword = await hashPass(password);
+    const hashedPwd = await bcrypt.hash(password, 5)
 
-    const procedure1 = "getUserByEmail";
-    const result = await execute(procedure1, { email });
+    const pool = await mssql.connect(sqlConfig)
 
-    const userWithEmail = result.recordset[0];
+    let result = await pool.request()
+      .input("id", mssql.VarChar, v4())
+      .input("username", mssql.VarChar, username)
+      .input("email", mssql.VarChar, email)
+      .input("password", mssql.VarChar, hashedPwd)
+      .execute('registerUser')
 
-    if (userWithEmail)
-      return res
-        .status(404)
-        .send({ error: "Account exists with the given email" });
+      console.log(result)
 
-    const newUser = {
-      id: uuidv4(),
-      username,
-      email,
-      password: newPassword,
-    
-    };
+      return res.status(200).json({
+        message: 'User registered successfully'
+      })
 
-    console.log(newUser);
-
-    const procedureName = "registerUser";
-    const params = newUser;
-    // console.log(params);
-
-    await execute(procedureName, params);
-
-    return res.send({ message: "User registered succesfully" });
-  } catch (error) {
-    console.log(error);
-    res.send({ error: (error as Error).message });
+  }catch(error) {
+    return res.json({
+      error: error
+    })
   }
-};
+}
+
+
+// export const registerUser = async (req: Request, res: Response) => {
+//   try {
+//     const { username, password, email } = req.body;
+
+//     const { error } = validateRegisterUser.validate(req.body);
+
+//     if (error)
+//       return res.status(400).send({
+//         error:
+//           "password should be at least 8 characters long with letters symbols and uppercase",
+//       });
+
+//     const newPassword = await hashPass(password);
+
+//     const procedure1 = "getUserByEmail";
+//     const result = await execute(procedure1, { email });
+
+//     const userWithEmail = result.recordset[0];
+
+//     if (userWithEmail)
+//       return res
+//         .status(404)
+//         .send({ error: "Account exists with the given email" });
+
+//     const newUser = {
+//       id: uuidv4(),
+//       username,
+//       email,
+//       password: newPassword,
+//     };
+
+//     console.log(newUser);
+
+//     const procedureName = "registerUser";
+//     // const params = { ...newUser, role: { value: newUser.role, type: 'nvarchar' } };
+
+//     await execute(procedureName, newUser);
+
+//     return res.status(201).send({ message: "User registered successfully" });
+//   } catch (error) {
+//     console.log(error);
+//     res.send({ error: (error as Error).message });
+//   }
+// };
+
 
 
 export const loginUser = async (req: Request, res: Response) => {
@@ -213,7 +262,16 @@ export const getUnAssignedUser = async (req: Request, res: Response) => {
   }
 };
 
-export const resetPassword = async () => {};
+export const resetPassword = async () => {
+  try{
+
+  }catch (error) {
+    console.log(error)
+  }
+
+};
+
+
 export const forgotPassword = async () => {};
 
 export const checkUserDetails = async (request: any, res: Response) => {
