@@ -1,4 +1,4 @@
-CREATE OR ALTER PROCEDURE [dbo].[getUserByEmail]
+CREATE OR ALTER PROCEDURE [dbo].[loginUser]
 	@email	varchar(250)
 as
 

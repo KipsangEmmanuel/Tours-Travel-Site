@@ -14,6 +14,8 @@ import {
 } from "../validators/userValidator";
 import { comparePass } from "../services/passwordHash";
 import { sqlConfig } from "../config/config";
+import jwt from 'jsonwebtoken'
+
 
 
 
@@ -94,6 +96,64 @@ export const registerUser = async(req: Request, res: Response) => {
   }
 }
 
+export const loginUser = async(req:Request, res: Response) =>{
+  try {
+      const {email, password} = req.body
+
+      const {error} = validateLoginUser.validate(req.body)
+
+      if(error){
+          return res.status(422).json({error: error.message})
+      }
+
+      const pool = await mssql.connect(sqlConfig)
+
+      let user = await (await pool.request().input("email", email).execute('loginUser')).recordset
+
+      console.log(user);
+      
+      
+      if(user[0]?.email  == email){
+          const CorrectPwd = await bcrypt.compare(password, user[0]?.password)
+
+          if(!CorrectPwd){
+              return res.status(401).json({
+                  error: "Incorrect password"
+              })
+          }
+
+          const LoginCredentials = user.map(records =>{
+              const {password, ...rest}=records
+
+              return rest
+          })
+
+          // console.log(LoginCredentials);
+
+          // dotenv.config()
+          const token = jwt.sign(LoginCredentials[0], process.env.SECRET as string, {
+              expiresIn: '24h'
+          }) 
+
+          return res.status(200).json({
+              message: "Logged in successfully", token
+          })
+          
+      }else{
+          return res.json({
+              error: "Email not found"
+          })
+      }
+
+  } catch (error) {
+    console.log(error)
+      return res.json({
+          error: "Internal server error"
+      })
+  }
+}
+
+
 
 // export const registerUser = async (req: Request, res: Response) => {
 //   try {
@@ -142,58 +202,58 @@ export const registerUser = async(req: Request, res: Response) => {
 
 
 
-export const loginUser = async (req: Request, res: Response) => {
-  try {
-    const { email, password } = req.body;
-    const procedureName = "getUserByEmail";
+// export const loginUser = async (req: Request, res: Response) => {
+//   try {
+//     const { email, password } = req.body;
+//     const procedureName = "getUserByEmail";
 
-    // console.log(req.body);
+//     // console.log(req.body);
     
 
-    const { error } = validateLoginUser.validate(req.body);
+//     const { error } = validateLoginUser.validate(req.body);
 
-    if (error)
-      return res.status(400).send({
-        success: false,
-        error:
-          "password should be atleast 8 characters long <br> with letters symbols and uppercase",
-      });
+//     if (error)
+//       return res.status(400).send({
+//         success: false,
+//         error:
+//           "password should be atleast 8 characters long <br> with letters symbols and uppercase",
+//       });
       
-    const result = await execute(procedureName, { email });
-    // console.log(result)
-    if (result) {
-      const recordset = result.recordset;
-      // console.log(recordset)
-      const user = recordset[0];
-      // console.log(user)
+//     const result = await execute(procedureName, { email });
+//     // console.log(result)
+//     if (result) {
+//       const recordset = result.recordset;
+//       // console.log(recordset)
+//       const user = recordset[0];
+//       // console.log(user)
 
-      if (!user) {
-        return res.status(404).send({ error: "Account does not exist" });
-      }
+//       if (!user) {
+//         return res.status(404).send({ error: "Account does not exist" });
+//       }
 
-      const validPassword = await comparePass(password, user.password);
+//       const validPassword = await comparePass(password, user.password);
 
-      if (!validPassword) {
-        return res.status(404).send({ error: "Invalid password" });
-      }
+//       if (!validPassword) {
+//         return res.status(404).send({ error: "Invalid password" });
+//       }
 
-      const token = generateToken(
-        user.email,
-        user._id,
-        user.username,
-        user.role
-      );
-      return res.send({
-        message: "Logged in successfully",
-        token,
-      });
-    } else {
-      return res.status(404).send({ message: "Account does not exist" });
-    }
-  } catch (error) {
-    console.log(error);
-  }
-};
+//       const token = generateToken(
+//         user.email,
+//         user._id,
+//         user.username,
+//         user.role
+//       );
+//       return res.send({
+//         message: "Logged in successfully",
+//         token,
+//       });
+//     } else {
+//       return res.status(404).send({ message: "Account does not exist" });
+//     }
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 
 
 export const updateUser = async (req: Request, res: Response) => {

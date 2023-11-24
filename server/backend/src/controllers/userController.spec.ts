@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt'
 // import jwt from 'jsonwebtoken'
 // import {v4} from 'uuid'
 import { Request, Response } from 'express';
-import { registerUser } from './userController';
+import { loginUser, registerUser } from './userController';
 
 describe('User Registration', () => {
     let res:any;
@@ -50,6 +50,32 @@ describe('User Registration', () => {
         expect(mockedInput).toHaveBeenCalledWith('email', mssql.VarChar, 'test@gmail.com')
 
 
+    })
+
+})
+
+describe('User Login', () => {
+
+    let res:any
+
+    beforeEach(()=> {
+        res={
+            status: jest.fn().mockReturnThis(),
+            json: jest.fn().mockReturnThis()
+        }
+    })
+
+    it('returns an error if email or password is empty', async() => {
+        const req = {
+            body: {
+                email: "",
+                password: ""
+            }
+        }
+
+        await loginUser(req as Request, res)
+
+        expect(res.json).toHaveBeenCalledWith({"error": "\"email\" is not allowed to be empty"})
     })
 
 })
