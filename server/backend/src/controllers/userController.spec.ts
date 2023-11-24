@@ -78,4 +78,18 @@ describe('User Login', () => {
         expect(res.json).toHaveBeenCalledWith({"error": "\"email\" is not allowed to be empty"})
     })
 
+    it("Returns an error if the email or password is missing", async() => {
+
+        const req = {
+            body: {            
+
+                
+            }
+        }
+
+        await loginUser(req as Request, res)
+
+        expect(res.json).toHaveBeenLastCalledWith({"error": "\"email\" is required"})
+    })
+
 })
