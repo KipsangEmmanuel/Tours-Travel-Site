@@ -1,3 +1,21 @@
+
+
+body {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_GyD-kmmFhzrWwJuWJmPW5xzAaLl2fdG41w&usqp=CAU');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 .nav-bar {
     display: flex;
     flex-flow: row wrap;

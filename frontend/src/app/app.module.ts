@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { AdminComponent } from './admin/admin.component';
 import { ProfileComponent } from './profile/profile.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -27,6 +28,7 @@ import { ProfileComponent } from './profile/profile.component';
     UserDashboardComponent,
     AdminComponent,
     ProfileComponent,
+    FooterComponent,
 
   ],
   imports: [

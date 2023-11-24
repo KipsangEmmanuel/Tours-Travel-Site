@@ -1,8 +1,25 @@
 
 
+
+body {
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvzFJE1jWuE1l6-JGZyLvTQE1QxWBmTPnHBQ&usqp=CAU');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    min-height: 100vh;
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    /* border: none; */
+}  
+
 .modal{
     width: 500px;
-    z-index: 100;
+    z-index: 1600;
 
 }
 .form-modal{

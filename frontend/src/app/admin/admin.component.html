@@ -1,274 +1,276 @@
-<div class="min-h-full">
-  <app-navbar></app-navbar>
-  <app-profile></app-profile>
-  <header class="bg-white shadow">
-    <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-      <div style="display: flex; justify-content: center; align-items: center;">
-        <h1 class="text-3xl font-bold tracking-tight text-blue-900">
-          Admin Dashboard
-        </h1>
+<body>
+  <div class="min-h-full">
+    <app-navbar></app-navbar>
+    <app-profile></app-profile>
+    <header class="">
+      <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+        <div style="display: flex; justify-content: center; align-items: center;">
+          <h1 class="text-3xl font-bold tracking-tight text-blue-900">
+            Admin Dashboard
+          </h1>
+        </div>
       </div>
-    </div>
-    
-  </header>
-  <main>
-    <div class="mx-auto flex justify-between max-w-7xl py-6 sm:px-6 lg:px-8">
-      <div>
-        <h1 class="text-3xl font-bold tracking-tight text-gray-900">Tours</h1>
-      </div>
-      <div class="">
-        <div class="bg-gray-200 modal">
-          <div
-            *ngIf="!visible"
-            id="crud-modal"
-            tabindex="-1"
-            aria-hidden="true"
-            class="top-50 flex px-15 justify-center items-center w-full"
-          >
-            <div class="relative p-4 w-full form-modal">
-              <!-- Modal content -->
-              <div class="relative rounded-lg shadow bg-gray-100">
-                <!-- Modal header -->
-                <div
-                  class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600"
-                >
-                  <h3
-                    class="text-lg font-semibold text-gray-900 dark:text-white"
+      
+    </header>
+    <main>
+      <div class="mx-auto flex justify-between max-w-7xl py-6 sm:px-6 lg:px-8">
+        <div>
+          <h1 class="text-3xl font-bold tracking-tight text-gray-900">Tours</h1>
+        </div>
+        <div class="">
+          <div class="bg-gray-200 modal">
+            <div
+              *ngIf="!visible"
+              id="crud-modal"
+              tabindex="-1"
+              aria-hidden="true"
+              class="top-50 flex px-15 justify-center items-center w-full"
+            >
+              <div class="relative p-4 w-full form-modal">
+                <!-- Modal content -->
+                <div class="relative rounded-lg shadow bg-gray-100">
+                  <!-- Modal header -->
+                  <div
+                    class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600"
                   >
-                    Create New Tour
-                  </h3>
-                  <button
-                    type="button"
-                    (click)="visible = !visible"
-                    class="text-gray-400 bg-green-700 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                    data-modal-toggle="crud-modal"
-                  >
-                    <i class="fa-solid fa-xmark fa-2xl"></i>
-                  </button>
-                </div>
-                <!-- Modal body -->
-                <form
-                  class="p-4 md:p-5"
-                  [formGroup]="createTourForm"
-                  (ngSubmit)="createTour()"
-                >
-                  <div class="grid gap-4 mb-4 grid-cols-2">
-                    <div class="col-span-2">
-                      <label
-                        for="name"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Tour Name</label
-                      >
-                      <input
-                        type="text"
-                        formControlName="tour_name"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        placeholder="Type product name"
-                        required=""
-                      />
-                    </div>
-                    <div class="col-span-2 sm:col-span-1">
-                      <label
-                        for="price"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Price</label
-                      >
-                      <input
-                        type="number"
-                        formControlName="price"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        placeholder="$2999"
-                        required=""
-                      />
-                    </div>
-                    <div class="col-span-2 sm:col-span-1">
-                      <label
-                        for="start_date"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Start Date</label
-                      >
-                      <input
-                        type="date"
-                        formControlName="start_date"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        placeholder="$2999"
-                        required=""
-                      />
-                    </div>
-                    <div class="col-span-2 sm:col-span-1">
-                      <label
-                        for="end_date"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >End Date</label
-                      >
-                      <input
-                        type="date"
-                        formControlName="end_date"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        placeholder="$2999"
-                        required=""
-                      />
-                    </div>
-
-                    <div class="col-span-2">
-                      <label
-                        for="description"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Tour Description</label
-                      >
-                      <textarea
-                        formControlName="tour_description"
-                        rows="4"
-                        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Write product description here"
-                      ></textarea>
-                    </div>
-                  </div>
-                  <!-- <button type="submit">add new</button>
-                   -->
-                  <button
-                    type="submit"
-                    class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                  >
-                    <svg
-                      class="me-1 -ms-1 w-5 h-5"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <h3
+                      class="text-lg font-semibold text-gray-900 dark:text-white"
                     >
-                      <path
-                        fill-rule="evenodd"
-                        d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                        clip-rule="evenodd"
-                      ></path>
-                    </svg>
-                    Add new tour
-                  </button>
-                </form>
+                      Create New Tour
+                    </h3>
+                    <button
+                      type="button"
+                      (click)="visible = !visible"
+                      class="text-gray-400 bg-green-700 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                      data-modal-toggle="crud-modal"
+                    >
+                      <i class="fa-solid fa-xmark fa-2xl"></i>
+                    </button>
+                  </div>
+                  <!-- Modal body -->
+                  <form
+                    class="p-4 md:p-5"
+                    [formGroup]="createTourForm"
+                    (ngSubmit)="createTour()"
+                  >
+                    <div class="grid gap-4 mb-4 grid-cols-2">
+                      <div class="col-span-2">
+                        <label
+                          for="name"
+                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          >Tour Name</label
+                        >
+                        <input
+                          type="text"
+                          formControlName="tour_name"
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                          placeholder="Type product name"
+                          required=""
+                        />
+                      </div>
+                      <div class="col-span-2 sm:col-span-1">
+                        <label
+                          for="price"
+                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          >Price</label
+                        >
+                        <input
+                          type="number"
+                          formControlName="price"
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                          placeholder="$2999"
+                          required=""
+                        />
+                      </div>
+                      <div class="col-span-2 sm:col-span-1">
+                        <label
+                          for="start_date"
+                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          >Start Date</label
+                        >
+                        <input
+                          type="date"
+                          formControlName="start_date"
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                          placeholder="$2999"
+                          required=""
+                        />
+                      </div>
+                      <div class="col-span-2 sm:col-span-1">
+                        <label
+                          for="end_date"
+                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          >End Date</label
+                        >
+                        <input
+                          type="date"
+                          formControlName="end_date"
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                          placeholder="$2999"
+                          required=""
+                        />
+                      </div>
+  
+                      <div class="col-span-2">
+                        <label
+                          for="description"
+                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          >Tour Description</label
+                        >
+                        <textarea
+                          formControlName="tour_description"
+                          rows="4"
+                          class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          placeholder="Write product description here"
+                        ></textarea>
+                      </div>
+                    </div>
+                    <!-- <button type="submit">add new</button>
+                     -->
+                    <button
+                      type="submit"
+                      class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    >
+                      <svg
+                        class="me-1 -ms-1 w-5 h-5"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                      Add new tour
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <div>
+          
+          <button
+            type="button"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+            (click)="visible = !visible"
+          >
+            Create Tour
+          </button>
+        </div>
       </div>
-      <div>
-        
+    </main>
+  </div>
+  
+  <!-- Main modal -->
+  
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 grid border rounded-xl gap-10 mx-5 my-10 shadow-sm divide-y overflow-hidden sm:flex :divide-y-0 sm:divide-x flex-wrap dark:border-gray-700 dark:shadow-slate-700/[.7] dark:divide-gray-600"
+  >
+    <div
+      *ngFor="let tour of tours"
+      class="w-full sm:w-96 flex flex-col mb-6 mx-2 bg-white dark:bg-gray-800"
+    >
+      <img class="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWWH239ie2eC1O1voKnY72cJiTi_crX7EX2w&usqp=CAU">
+      <div class="p-4 flex-1 md:p-5">
+        <h3 class="text-lg font-bold text-gray-800 dark:text-white">
+          {{ tour.tour_name }}
+        </h3>
+  
+        <p class="mt-1 text-gray-500 dark:text-gray-400">
+          Total Cost :
+          <span class="text-lg font-bold text-gray-800 dark:text-white">
+            KSH {{ tour.price }}</span
+          >
+        </p>
+        <p class="mt-1 text-gray-500 dark:text-gray-400">
+          {{ tour.tour_description }}
+        </p>
+        <div class="flex justify-between">
+          <p class="text-xs text-gray-500 dark:text-gray-500">
+            Start Date : {{ tour.start_date }}
+          </p>
+          <p class="text-xs text-gray-500 dark:text-gray-500">
+            End Date : {{ tour.end_date }}
+          </p>
+        </div>
+      </div>
+      <div class="p-4 border-t sm:px-5 dark:border-gray-700">
+        <!-- <button
+          type="button"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+        >
+          Book
+        </button> -->
+      </div>
+      <div
+        class="py-6 px-15 border-t sm:px-5 dark:border-gray-700 flex justify-between"
+      >
         <button
           type="button"
-          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-          (click)="visible = !visible"
+          class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800"
+          (click)="deleteTour(tour.tour_id)"
         >
-          Create Tour
+          Delete
+        </button>
+        <button
+          type="button"
+          class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-green-800"
+          (click)="openEditTourModal(tour)"
+          
+        >
+          Edit
         </button>
       </div>
     </div>
-  </main>
-</div>
-
-<!-- Main modal -->
-
-<div
-  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 grid border rounded-xl gap-10 mx-5 my-10 shadow-sm divide-y overflow-hidden sm:flex :divide-y-0 sm:divide-x flex-wrap dark:border-gray-700 dark:shadow-slate-700/[.7] dark:divide-gray-600"
->
-  <div
-    *ngFor="let tour of tours"
-    class="w-full sm:w-96 flex flex-col mb-6 mx-2 bg-white dark:bg-gray-800"
-  >
-    <img class="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWWH239ie2eC1O1voKnY72cJiTi_crX7EX2w&usqp=CAU">
-    <div class="p-4 flex-1 md:p-5">
-      <h3 class="text-lg font-bold text-gray-800 dark:text-white">
-        {{ tour.tour_name }}
-      </h3>
-
-      <p class="mt-1 text-gray-500 dark:text-gray-400">
-        Total Cost :
-        <span class="text-lg font-bold text-gray-800 dark:text-white">
-          KSH {{ tour.price }}</span
-        >
-      </p>
-      <p class="mt-1 text-gray-500 dark:text-gray-400">
-        {{ tour.tour_description }}
-      </p>
-      <div class="flex justify-between">
-        <p class="text-xs text-gray-500 dark:text-gray-500">
-          Start Date : {{ tour.start_date }}
-        </p>
-        <p class="text-xs text-gray-500 dark:text-gray-500">
-          End Date : {{ tour.end_date }}
-        </p>
+  </div>
+  
+  
+  <div class="min-h-screen flex items-center justify-center">
+    <!-- ... (existing content) -->
+  
+    <!-- Edit Tour Modal -->
+    <div *ngIf="isEditModalVisible" class="fixed inset-0 flex items-center justify-center">
+      <div class="bg-black bg-opacity-50 w-full h-full"></div>
+      <div class="edit-tour-modal bg-white p-8 rounded-lg">
+        <span class="close absolute top-2 right-2 text-gray-500 cursor-pointer" (click)="closeEditTourModal()">&times;</span>
+        <h2 class="text-2xl font-bold mb-4">Edit Tour</h2>
+        <form [formGroup]="editTourForm" (ngSubmit)="saveChanges()">
+          <!-- Tour Name -->
+          <div class="mb-4">
+            <label for="tour_name" class="block text-sm font-medium text-gray-900">Tour Name</label>
+            <input type="text" id="tour_name" formControlName="tour_name" class="form-input mt-1 p-2 w-full rounded-md" />
+          </div>
+          <!-- Tour Description -->
+          <div class="mb-4">
+            <label for="tour_description" class="block text-sm font-medium text-gray-900">Tour Description</label>
+            <textarea id="tour_description" formControlName="tour_description" rows="4" class="form-textarea mt-1 p-2 w-full rounded-md"></textarea>
+          </div>
+          <!-- Start Date -->
+          <div class="mb-4">
+            <label for="start_date" class="block text-sm font-medium text-gray-900">Start Date</label>
+            <input type="date" id="start_date" formControlName="start_date" class="form-input mt-1 p-2 w-full rounded-md" />
+          </div>
+          <!-- End Date -->
+          <div class="mb-4">
+            <label for="end_date" class="block text-sm font-medium text-gray-900">End Date</label>
+            <input type="date" id="end_date" formControlName="end_date" class="form-input mt-1 p-2 w-full rounded-md" />
+          </div>
+          <!-- Price -->
+          <div class="mb-4">
+            <label for="price" class="block text-sm font-medium text-gray-900">Price</label>
+            <input type="number" id="price" formControlName="price" class="form-input mt-1 p-2 w-full rounded-md" />
+          </div>
+  
+          <button type="submit" class="bg-blue-700 text-white px-4 py-2 rounded-lg">Save Changes</button>
+        </form>
       </div>
     </div>
-    <div class="p-4 border-t sm:px-5 dark:border-gray-700">
-      <!-- <button
-        type="button"
-        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-      >
-        Book
-      </button> -->
-    </div>
-    <div
-      class="py-6 px-15 border-t sm:px-5 dark:border-gray-700 flex justify-between"
-    >
-      <button
-        type="button"
-        class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800"
-        (click)="deleteTour(tour.tour_id)"
-      >
-        Delete
-      </button>
-      <button
-        type="button"
-        class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-green-800"
-        (click)="openEditTourModal(tour)"
-        
-      >
-        Edit
-      </button>
-    </div>
   </div>
-</div>
-
-
-<div class="min-h-screen flex items-center justify-center">
-  <!-- ... (existing content) -->
-
-  <!-- Edit Tour Modal -->
-  <div *ngIf="isEditModalVisible" class="fixed inset-0 flex items-center justify-center">
-    <div class="bg-black bg-opacity-50 w-full h-full"></div>
-    <div class="edit-tour-modal bg-white p-8 rounded-lg">
-      <span class="close absolute top-2 right-2 text-gray-500 cursor-pointer" (click)="closeEditTourModal()">&times;</span>
-      <h2 class="text-2xl font-bold mb-4">Edit Tour</h2>
-      <form [formGroup]="editTourForm" (ngSubmit)="saveChanges()">
-        <!-- Tour Name -->
-        <div class="mb-4">
-          <label for="tour_name" class="block text-sm font-medium text-gray-900">Tour Name</label>
-          <input type="text" id="tour_name" formControlName="tour_name" class="form-input mt-1 p-2 w-full rounded-md" />
-        </div>
-        <!-- Tour Description -->
-        <div class="mb-4">
-          <label for="tour_description" class="block text-sm font-medium text-gray-900">Tour Description</label>
-          <textarea id="tour_description" formControlName="tour_description" rows="4" class="form-textarea mt-1 p-2 w-full rounded-md"></textarea>
-        </div>
-        <!-- Start Date -->
-        <div class="mb-4">
-          <label for="start_date" class="block text-sm font-medium text-gray-900">Start Date</label>
-          <input type="date" id="start_date" formControlName="start_date" class="form-input mt-1 p-2 w-full rounded-md" />
-        </div>
-        <!-- End Date -->
-        <div class="mb-4">
-          <label for="end_date" class="block text-sm font-medium text-gray-900">End Date</label>
-          <input type="date" id="end_date" formControlName="end_date" class="form-input mt-1 p-2 w-full rounded-md" />
-        </div>
-        <!-- Price -->
-        <div class="mb-4">
-          <label for="price" class="block text-sm font-medium text-gray-900">Price</label>
-          <input type="number" id="price" formControlName="price" class="form-input mt-1 p-2 w-full rounded-md" />
-        </div>
-
-        <button type="submit" class="bg-blue-700 text-white px-4 py-2 rounded-lg">Save Changes</button>
-      </form>
-    </div>
-  </div>
-</div>
+</body>
 
 
 

@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <body>
     <div class="wrapper">
-      <form [formGroup]="registerUser" (ngSubmit)="createUser()">
+      <form [formGroup]="registerUser" data-cy="register-form" (ngSubmit)="createUser()">
         <h2>Register</h2>
         <div class="input-field">
             <input type="text" formControlName="username" required>
